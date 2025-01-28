@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>{% block title %}Bienvenu{% endblock %}</title>
+           <link rel="icon" href="{{ asset("asset/img/favicon.png") }}">
+           <link rel="apple-touch-icon" href="{{ asset("asset/img/apple-touch-icon.png") }}">
+        {% block stylesheets %}
+           <link rel="stylesheet" href="{{ asset("asset/vendor/bootstrap/css/bootstrap.min.css") }}">
+           <link rel="stylesheet" href="{{ asset("asset/vendor/bootstrap-icons/bootstrap-icons.css") }}">
+           <link rel="stylesheet" href="{{ asset("asset/vendor/boxicons/css/boxicons.min.css") }}">
+           <link rel="stylesheet" href="{{ asset("asset/vendor/quill/quill.snow.css") }}">
+           <link rel="stylesheet" href="{{ asset("asset/vendor/quill/quill.bubble.css") }}">
+           <link rel="stylesheet" href="{{ asset("asset/vendor/remixicon/remixicon.css") }}">
+           <link rel="stylesheet" href="{{ asset("asset/vendor/simple-datatables/style.css") }}">
+           <link rel="stylesheet" href="{{ asset("asset/css/style.css") }}">
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset("asset/vendor/apexcharts/apexcharts.min.js") }}"></script>
+            <script src="{{ asset("asset/vendor/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
+            <script src="{{ asset("asset/vendor/chart.js/chart.umd.js") }}"></script>
+            <script src="{{ asset("asset/vendor/echarts/echarts.min.js") }}"></script>
+            <script src="{{ asset("asset/vendor/quill/quill.min.js") }}"></script>
+            <script src="{{ asset("asset/vendor/simple-datatables/simple-datatables.js") }}"></script>
+            <script src="{{ asset("asset/vendor/tinymce/tinymce.min.js") }}"></script>
+            <script src="{{ asset("asset/vendor/php-email-form/validate.js") }}"></script>
+            <script src="{{ asset("asset/js/main.js") }}"></script>
+        {% endblock %}
+    </head>
+    <body>
+    {% include "_partials/_header.html.twig" %}
+        {% block body %}
+        {% endblock %}
+    {% include "_partials/_footer.html.twig" %}
+    </body>
+</html>

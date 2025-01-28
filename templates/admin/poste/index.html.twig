@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste Poste{% endblock %}
+
+
+{% block body %}
+<main id="main" class="main">
+
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Liste des postes</h5>
+              <p>Ce tableau récapitule toutes les informations sur chaque poste.</p>
+                {% include "_partials/_flashmessage.html.twig" %}
+
+              <!-- Table with stripped rows -->
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th scope="col">Poste</th>
+                    <th scope="col">Salaire lié au poste</th>
+                    <th scope="col"><i class='ri-ball-pen-fill'></i></th>
+                    <th scope="col"><i class='ri-delete-bin-2-fill'></i></th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for poste in postes %}
+                  <tr>
+                    <td>{{ poste.poste }}</td>
+                    <td>{{ poste.salaire.salaire }} fcfa</td>
+                    <td><a onclick=" return confirm('Voulez-vous Vraiment modifier ce poste 👏👏 ?')" style="color: blue;" href="{{path('app_admin_poste_edit', { id: poste.id })}}"><i class="ri-ball-pen-line"></i></a></td>
+                    <td><a onclick=" return confirm('Voulez-vous Vraiment supprimer ce poste 👏👏 ?')" style="color: red;" href="{{path('app_admin_poste_delete', { id: poste.id })}}"><i class="ri-delete-bin-6-line"></i></a></td>
+                  </tr>
+                     {% else %}
+                         <tr>
+                            <td colspan="7">
+                             <div class="col-md-12 mx-auto mt-2">
+                                 <div class="alert alert-info alert dimissible fade show">
+                                     Aucun Poste n'est Ajouté 😎😎😎😎
+                                 </div>
+                             </div>
+                            </td>
+                        </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+{% endblock %}
+

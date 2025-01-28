@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prime{% endblock %}
+
+{% block body %}
+    <h1>Prime</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ prime.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ prime.Libelle }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ prime.montant }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_prime_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_prime_edit', {'id': prime.id}) }}">edit</a>
+
+    {{ include('admin/prime/_delete_form.html.twig') }}
+{% endblock %}

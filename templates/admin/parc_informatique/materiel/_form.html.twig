@@ -1,0 +1,60 @@
+ <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Formulaire Materiel</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Acceuil</a></li>
+          <li class="breadcrumb-item">gestion Parc Informatique</li>
+          <li class="breadcrumb-item active">Materiel</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-8">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Formulaire d'ajout du Matériel</h5>
+                {% include "_partials/_flashmessage.html.twig" %}
+              <!-- Vertical Form -->
+              {{ form_start(form) }}
+                <div class="col-12">
+                  {{ form_row(form.nom, {'attr':{'class': 'form-control'}}) }}
+                </div>
+                <div class="col-12">
+                  {{ form_row(form.datebuy, {'attr':{'class': 'form-control'}}) }}
+                </div>
+                <div class="col-12">
+                  {{ form_row(form.prix, {'attr':{'class': 'form-control'}}) }}
+                </div>
+                <div class="col-12">
+                  {{ form_row(form.quantite, {'attr':{'class': 'form-control'}}) }}
+                </div>
+                <div class="col-12">
+                  {{ form_row(form.rame, {'attr':{'class': 'form-control'}}) }}
+                </div>
+                <div class="col-12">
+                  {{ form_row(form.disque, {'attr':{'class': 'form-control'}}) }}
+                </div>
+                <div class="col-12">
+                  {{ form_row(form.core, {'attr':{'class': 'form-control'}}) }}
+                </div>
+                <div class="col-12">
+                  {{ form_row(form.systeme, {'attr':{'class': 'form-control'}}) }}
+                </div>
+                <div class="col-12">
+                  {{ form_row(form.generation, {'attr':{'class': 'form-control'}}) }}
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Ajouter</button>
+                </div>
+              {{ form_end(form) }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
