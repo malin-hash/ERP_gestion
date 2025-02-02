@@ -33,6 +33,15 @@ class Client
     #[ORM\OneToMany(targetEntity: Reclamation::class, mappedBy: 'client')]
     private Collection $reclamations;
 
+    #[ORM\ManyToOne(inversedBy: 'clients')]
+    private ?City $city = null;
+
+    #[ORM\ManyToOne(inversedBy: 'clients')]
+    private ?Country $country = null;
+
+    #[ORM\ManyToOne(inversedBy: 'clients')]
+    private ?Profession $profession = null;
+
     public function __construct()
     {
         $this->reclamations = new ArrayCollection();
@@ -117,6 +126,42 @@ class Client
                 $reclamation->setClient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCity(): ?City
+    {
+        return $this->city;
+    }
+
+    public function setCity(?City $city): static
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getCountry(): ?Country
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?Country $country): static
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    public function getProfession(): ?Profession
+    {
+        return $this->profession;
+    }
+
+    public function setProfession(?Profession $profession): static
+    {
+        $this->profession = $profession;
 
         return $this;
     }

@@ -25,6 +25,9 @@
                     <th scope="col">Prénom</th>
                     <th scope="col">Adresse</th>
                     <th scope="col">Téléphone</th>
+                    <th scope="col">Ville</th>
+                    <th scope="col">Pays</th>
+                    <th scope="col">Profession</th>
                     <th scope="col"><i class='ri-ball-pen-fill'></i></th>
                     <th scope="col"><i class='ri-delete-bin-2-fill'></i></th>
                   </tr>
@@ -37,6 +40,9 @@
                     <td>{{ client.prenom }}</td>
                     <td>{{ client.adresse }}</td>
                     <td>{{ client.telephone}}</td>
+                    <td>{{ client.city.name}}</td>
+                    <td>{{ client.country.name}}</td>
+                    <td>{{ client.profession.nom}}</td>
                      <td><a onclick=" return confirm('Voulez-vous Vraiment modifier ce  client 👏👏 ?')" style="color: blue;" href="{{path('app_admin_clientelle_client_edit', { id: client.id })}}"><i class="ri-ball-pen-line"></i></a></td>
                      <td><a onclick=" return confirm('Voulez-vous Vraiment supprimer ce client 👏👏 ?')" style="color: red;" href="{{path('app_admin_clientelle_client_delete', { id: client.id })}}"><i class="ri-delete-bin-6-line"></i></a></td>
 

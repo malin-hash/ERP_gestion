@@ -26,6 +26,7 @@ class Prime1Type extends AbstractType
                 'class' => Poste::class,
                 'choice_label' => 'poste',
                 'multiple' => true,
+                'lable' => 'Le Poste'
             ])
         ;
     }

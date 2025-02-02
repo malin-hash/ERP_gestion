@@ -18,7 +18,7 @@ final class PersonnelController extends AbstractController
     public function index(PersonnelRepository $personnelRepository): Response
     {
         return $this->render('admin/personnel/index.html.twig', [
-            'personnels' => $personnelRepository->findAll(),
+            'personnels' => $personnelRepository->findBy([], ['id' => 'desc']),
         ]);
     }
 

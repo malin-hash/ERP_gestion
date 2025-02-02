@@ -30,16 +30,19 @@ class Personnel
     private ?\DateTimeInterface $dateentre = null;
 
     #[ORM\ManyToOne(inversedBy: 'personnels')]
-    #[ORM\JoinColumn(nullable: false)]
+    private ?Bureau $bureau = null;
+
+    #[ORM\ManyToOne(inversedBy: 'personnels')]
     private ?Poste $poste = null;
 
     #[ORM\ManyToOne(inversedBy: 'personnels')]
-    #[ORM\JoinColumn(nullable: false)]
     private ?Service $service = null;
 
-    #[ORM\ManyToOne(inversedBy: 'personnelles')]
-    private ?Materiel $material = null;
+    #[ORM\ManyToOne(inversedBy: 'personnels')]
+    private ?City $ville = null;
 
+    #[ORM\ManyToOne(inversedBy: 'personnels')]
+    private ?Country $pays = null;
 
     public function getId(): ?int
     {
@@ -106,6 +109,18 @@ class Personnel
         return $this;
     }
 
+    public function getBureau(): ?Bureau
+    {
+        return $this->bureau;
+    }
+
+    public function setBureau(?Bureau $bureau): static
+    {
+        $this->bureau = $bureau;
+
+        return $this;
+    }
+
     public function getPoste(): ?Poste
     {
         return $this->poste;
@@ -130,14 +145,26 @@ class Personnel
         return $this;
     }
 
-    public function getMaterial(): ?Materiel
+    public function getVille(): ?City
     {
-        return $this->material;
+        return $this->ville;
     }
 
-    public function setMaterial(?Materiel $material): static
+    public function setVille(?City $ville): static
     {
-        $this->material = $material;
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getPays(): ?Country
+    {
+        return $this->pays;
+    }
+
+    public function setPays(?Country $pays): static
+    {
+        $this->pays = $pays;
 
         return $this;
     }

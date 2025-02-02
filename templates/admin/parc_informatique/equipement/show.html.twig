@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Equipement{% endblock %}
+
+{% block body %}
+    <h1>Equipement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ equipement.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ equipement.nom }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ equipement.date ? equipement.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ equipement.price }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ equipement.quantity }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_parc_informatique_equipement_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_parc_informatique_equipement_edit', {'id': equipement.id}) }}">edit</a>
+
+    {{ include('admin/parc_informatique/equipement/_delete_form.html.twig') }}
+{% endblock %}

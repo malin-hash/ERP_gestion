@@ -28,12 +28,11 @@ class Poste
     #[ORM\OneToMany(targetEntity: Personnel::class, mappedBy: 'poste')]
     private Collection $personnels;
 
-
-
     public function __construct()
     {
         $this->personnels = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {

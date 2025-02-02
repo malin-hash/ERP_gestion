@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste bureaus{% endblock %}
+
+{% block body %}
+<main id="main" class="main">
+
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Liste des parsonnels</h5>
+              <p>Ce tableau récapitule toutes les informations sur chaque Bureau.</p>
+                {% include "_partials/_flashmessage.html.twig" %}
+
+              <!-- Table with stripped rows -->
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th scope="col">Bureau</th>
+                    <th scope="col">Ordinateur</th>
+                    <th scope="col">Imprimante</th>
+                    <th scope="col">Unité Centrale</th>
+                    <th scope="col"><i class='ri-ball-pen-fill'></i></th>
+                    <th scope="col"><i class='ri-delete-bin-2-fill'></i></th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for bureau in bureaus %}
+                  <tr>
+                    <td>{{ bureau.matricule}}</td>
+                    <td>{{ bureau.ordinateur.nom}}</td>
+                    <td>{{ bureau.imprimante.nom}}</td>
+                    <td>{{ bureau.unitecentral.nom}}</td>
+                     <td><a onclick=" return confirm('Voulez-vous Vraiment modifier ce  bureau 👏👏 ?')" style="color: blue;" href="{{path('app_admin_bureau_edit', { id: bureau.id })}}"><i class="ri-ball-pen-line"></i></a></td>
+                     <td><a onclick=" return confirm('Voulez-vous Vraiment supprimer ce bureau 👏👏 ?')" style="color: red;" href="{{path('app_admin_bureau_delete', { id: bureau.id })}}"><i class="ri-delete-bin-6-line"></i></a></td>
+              
+                  </tr>
+                     {% else %}
+                        <tr>
+                            <td colspan="7">
+                             <div class="col-md-12 mx-auto mt-2">
+                                 <div class="alert alert-info alert dimissible fade show">
+                                     Aucun bureau 😎😎😎😎
+                                 </div>
+                             </div>
+                            </td>
+                        </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+{% endblock %}
+

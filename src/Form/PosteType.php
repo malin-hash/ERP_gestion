@@ -21,6 +21,8 @@ class PosteType extends AbstractType
             ->add('salaire', EntityType::class, [
                 'class' => Salaire::class,
                 'choice_label' => 'salaire',
+                'label' => 'Salaire'
+
             ])
         ;
     }

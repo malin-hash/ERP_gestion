@@ -12,7 +12,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Liste des parsonnels</h5>
+              <h5 class="card-title">Liste des personnels</h5>
               <p>Ce tableau récapitule toutes les informations sur chaque employé.</p>
                 {% include "_partials/_flashmessage.html.twig" %}
 
@@ -22,13 +22,15 @@
                   <tr>
                     <th scope="col">Nom</th>
                     <th scope="col">Prénom</th>
+                    <th scope="col">Pays</th>
+                    <th scope="col">Ville</th>
                     <th scope="col">Adresse</th>
                     <th scope="col">Date de naissance</th>
                     <th scope="col">Date D'entrée</th>
                     <th scope="col">Poste</th>
                     <th scope="col">Service</th>
-                    <th scope="col">Matériel</th>
                     <th scope="col">Salaire de base</th>
+                    <th scope="col">Bureau</th>
                     <th scope="col"><i class='ri-ball-pen-fill'></i></th>
                     <th scope="col"><i class='ri-delete-bin-2-fill'></i></th>
                   </tr>
@@ -38,13 +40,15 @@
                   <tr>
                     <td>{{ personnel.nom }}</td>
                     <td>{{ personnel.prenom }}</td>
+                    <td>{{ personnel.pays.name }}</td>
+                    <td>{{ personnel.ville.name }}</td>
                     <td>{{ personnel.adresse }}</td>
                     <td>{{ personnel.datenaisse ? personnel.datenaisse|date('d / m / Y') : ''  }}</td>
                     <td>{{ personnel.dateentre ? personnel.dateentre|date('d / m / Y') : ''  }}</td>
                     <td>{{ personnel.poste.poste }}</td>
                     <td>{{ personnel.service.nom }}</td>
-                    <td>{{ personnel.material.nom }}</td>
                     <td>{{ personnel.poste.salaire.salaire}} fcfa</td>
+                    <td>{{ personnel.bureau.matricule}}</td>
                      <td><a onclick=" return confirm('Voulez-vous Vraiment modifier ce  personnel 👏👏 ?')" style="color: blue;" href="{{path('app_admin_personnel_edit', { id: personnel.id })}}"><i class="ri-ball-pen-line"></i></a></td>
                      <td><a onclick=" return confirm('Voulez-vous Vraiment supprimer ce personnel 👏👏 ?')" style="color: red;" href="{{path('app_admin_personnel_delete', { id: personnel.id })}}"><i class="ri-delete-bin-6-line"></i></a></td>
               

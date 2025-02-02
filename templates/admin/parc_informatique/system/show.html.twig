@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}System{% endblock %}
+
+{% block body %}
+    <h1>System</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ system.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ system.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_parc_informatique_system_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_parc_informatique_system_edit', {'id': system.id}) }}">edit</a>
+
+    {{ include('admin/parc_informatique/system/_delete_form.html.twig') }}
+{% endblock %}

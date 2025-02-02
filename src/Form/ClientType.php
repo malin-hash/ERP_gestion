@@ -2,7 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\City;
 use App\Entity\Client;
+use App\Entity\Country;
+use App\Entity\Profession;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -15,16 +19,31 @@ class ClientType extends AbstractType
     {
         $builder
             ->add('nom', TextType::class, [
-                'label' => 'Le nom'
+                'label' => 'Nom'
             ])
             ->add('prenom', TextType::class, [
-                'label' => 'Le prénom'
+                'label' => 'Prénom'
             ])
             ->add('adresse', TextType::class, [
                 'label' => 'Adresse'
             ])
             ->add('telephone', IntegerType::class, [
                 'label' => 'Téléphone'
+            ])
+            ->add('city', EntityType::class, [
+                'class' => City::class,
+                'choice_label' => 'name',
+                'label' => 'Ville'
+            ])
+            ->add('country', EntityType::class, [
+                'class' => Country::class,
+                'choice_label' => 'name',
+                'label' => 'Pays'
+            ])
+            ->add('profession', EntityType::class, [
+                'class' => Profession::class,
+                'choice_label' => 'nom',
+                'label' => 'Profession'
             ])
         ;
     }

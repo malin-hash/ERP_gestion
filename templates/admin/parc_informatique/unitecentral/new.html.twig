@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Unitecentral{% endblock %}
+
+{% block body %}
+    <h1>Create new Unitecentral</h1>
+
+    {{ include('admin/parc_informatique/unitecentral/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_parc_informatique_unitecentral_index') }}">back to list</a>
+{% endblock %}
